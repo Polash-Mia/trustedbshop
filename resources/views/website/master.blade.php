@@ -13,7 +13,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -28,11 +28,11 @@
 <body>
     <!-- Topbar Start -->
     <div class="container-fluid bg-dark">
-        
+
         <div class="row align-items-center py-3 px-xl-5">
             <div class="col-lg-3 d-none d-lg-block">
                 <a href="{{route('home')}}" class="text-decoration-none ml-5">
-                    
+
 					<img class="" src="{{asset('/')}}website/img/637b709aa4a83.png" alt="" height="70 px" width="150 px">
                 </a>
             </div>
@@ -56,7 +56,7 @@
                     <div class="input-group">
                         <input type="text" name="search" class="form-control" placeholder="সার্চ করুন">
                         <button type="submit" class="input-group-text bg-transparent text-primary"><i class="fa fa-search"></i></button>
-                        
+
                     </div>
                 </form>
             </div>
@@ -72,22 +72,22 @@
             </div>
         </div>
     </div>
-    
-	
+
+
 	<!-- Topbar End -->
 
 
     <!-- Navbar Start -->
     <div class="container-fluid ">
         <div class="row border-top px-xl-5 bg-danger">
-            
+
             <div class="col-lg-12 ">
                 <nav class="navbar navbar-expand-lg   py-3 py-lg-0 px-0">
                     <a href="{{route('home')}}" class="text-decoration-none d-block d-lg-none">
                         <img class="" src="{{asset('/')}}website/img/637b709aa4a83.png" alt="" height="70 px" width="150 px">
                     </a>
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                        <span class="navbar-toggler-icon"></span>
+                        <i class="fa fa-bars" id="cat_menu_mobile_btn"></i>
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0 ">
@@ -105,10 +105,10 @@
 							<a href="contact.html" class="nav-item nav-link text-white fw-bold ">Bracelet</a>
 							<a href="contact.html" class="nav-item nav-link text-white fw-bold ">MAGNETIC RING</a> --}}
                         </div>
-                        
+
                     </div>
                 </nav>
-                
+
             </div>
         </div>
     </div>
@@ -116,40 +116,40 @@
 
 
     <!-- Featured Start -->
-   
+
     <!-- Featured End -->
 
 
     <!-- Categories Start -->
-   
+
 	<!-- Categories End -->
 
 
     <!-- Offer Start -->
-   
+
 
    <!-- Offer End -->
 
 
     <!-- Products Start -->
-    
+
    <!-- Products End -->
 
 
     <!-- Subscribe Start -->
-    
-	
+
+
 	<!-- Subscribe End -->
 
 
     <!-- Products Start -->
 
     @yield('body')
-   
+
     <!-- Products End -->
-	
-    
-    
+
+
+
                     {{-- <div class="col-12 pb-1">
                         <nav aria-label="Page navigation">
                           <ul class="pagination justify-content-center mb-3">
@@ -173,12 +173,12 @@
                     </div> --}}
 
 
-   
+
 
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-dark mt-5 ">
-       
+
         <div class="row border-top  mx-xl-5 py-3">
             <div class="col-md-12 px-xl-0">
                 <p class=" text-center text-md-center text-white">
@@ -188,7 +188,7 @@
         </div>
     </div>
     <!-- Footer End -->
- 
+
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
@@ -207,10 +207,10 @@
     <!-- Template Javascript -->
     <script src="{{asset('/')}}website/js/main.js"></script>
 
-  
-    
-  
-  
+
+    @stack('script')
+
+
 </body>
 
 </html>

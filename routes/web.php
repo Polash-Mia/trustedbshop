@@ -33,6 +33,10 @@ Route::get('/search', [HomeController::class, 'search'])->name('search');
 Route::post('/add-to-cart/{id}', [CartController::class, 'index'])->name('add-to-cart');
 Route::get('/show-cart', [CartController::class, 'show'])->name('show-cart');
 Route::get('/remove-cart-product/{id}', [CartController::class, 'remove'])->name('remove-cart-product');
+Route::get('/cart-product-increment', [CartController::class, 'increment'])->name('increment-cart-product');
+Route::get('/cart-product-decrement', [CartController::class, 'decrement'])->name('decrement-cart-product');
+
+
 
 Route::post('/new-order', [CheckoutController::class, 'newOrder'])->name('new-order');
 Route::get('/complete-order', [CheckoutController::class, 'completeOrder'])->name('complete-order');

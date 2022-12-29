@@ -14,7 +14,7 @@ class CartController extends Controller
     public function index(Request $request, $id)
     {
         $this->product = Product::find($id);
-        
+
         \Cart::add(array (
             'id'        => $this->product->id,
             'name'      => $this->product->name,
@@ -32,7 +32,7 @@ class CartController extends Controller
         if(\Cart::isEmpty()){
             return redirect()->route('home');
         }else{
-           
+
             return view('website.cart.show', [
                 'products' => \Cart::getContent(),
             ]);
@@ -45,5 +45,47 @@ class CartController extends Controller
         return redirect()->back()->with('message', 'Cart product info remove successfully.');
     }
 
-    
+
+    public function increment(Request $request)
+    {
+
+
+        $data= \Cart::update($request->id, array(
+            'quantity' => 1, // so if the current product has a quantity of 4, another 2 will be added so this will result to 6
+          ));
+          $result= \Cart::get($request->id);
+        if($data){
+            return response([
+                'success'=>true,
+                'data'=>$result
+            ]);
+        }else{
+            return response([
+                'success'=>false
+            ]);
+        }
+
+    }
+
+    public function decrement(Request $request)
+    {
+
+
+        $data= \Cart::update($request->id, array(
+            'quantity' => -1, // so if the current product has a quantity of 4, another 2 will be added so this will result to 6
+          ));
+          $result= \Cart::get($request->id);
+        if($data){
+            return response([
+                'success'=>true,
+                'data'=>$result
+            ]);
+        }else{
+            return response([
+                'success'=>false
+            ]);
+        }
+
+    }
+
 }
