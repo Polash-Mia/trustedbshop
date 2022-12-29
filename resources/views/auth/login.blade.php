@@ -47,7 +47,7 @@
                             <a href="">
                                 <div class="avatar-md profile-user-wid mb-4">
                                             <span class="avatar-title rounded-circle bg-light">
-                                                <img src="{{asset('/')}}website/img/unnamed.png" alt="" class="rounded-circle" height="50" width="65">
+                                                <img src="{{asset('/')}}admin/assets/images/user.jpg" alt="" class="rounded-circle" height="80" width="70">
                                             </span>
                                 </div>
                             </a>

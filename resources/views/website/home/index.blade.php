@@ -3,10 +3,27 @@
 @section('body')
 <div class="container-fluid pt-5">
     <div class="text-center mb-4">
+
+
+        @if ($products->count() == 0)
+                <h1 class="text-center text-danger py-5">দুঃখিত কোন পণ্য পাওয়া যায়নি  </h1>
+                <a href="{{ route('home') }}" class="btn btn-success rounded">HOME</a>
+    
+
+                @else
         <h2 class="section-title px-5"><span class="px-2">প্রয়োজনীয় প্রোডাক্ট</span></h2>
     </div>
     <div class="row px-xl-5 pb-3">
 
+        {{-- @if ($products->count() == 0)
+        <div class="text-center">
+            <h1 class="text-center text-danger">দুঃখিত কোন পণ্য পাওয়া যায়নি</h1>
+        </div>
+            <div>
+                <a href="" class="btn btn-success rounded">HOME</a>
+            </div> --}}
+            
+        {{-- @else --}}
         @foreach($products as $product)
         
        <div class=" col-md-2 col-6 ">
@@ -26,9 +43,12 @@
                             <h6 class="text-truncate mb-3">{{$product->name}}</h6>
                         </a>
                         
-                            <form action="" method="post">      
-                                <input type="hidden" name="qty" value="1">
-                                <input type="submit" class="btn btn-sm w-100 mb-2 bg-danger px-2 text-white rounded" name="order_now" value="অর্ডার করুন">
+                            <form action="{{route('add-to-cart', ['id' => $product->id ])}}" method="POST">  
+                                @csrf    
+                                {{-- <input type="hidden" name="qty" value="1"> --}}
+                                <input type="hidden" name="quantity"  value="1" >
+                                <button type="submit" class="btn btn-sm w-100 mb-2 bg-danger px-2 text-white rounded" name="order_now" >অর্ডার করুন</button> 
+                                {{-- <input type="submit" class="btn btn-sm w-100 mb-2 bg-danger px-2 text-white rounded" name="order_now" value="অর্ডার করুন"> --}}
                             </form>
                     
                 </div>
@@ -37,6 +57,7 @@
         </div>
 
         @endforeach
+        @endif
 
 
 

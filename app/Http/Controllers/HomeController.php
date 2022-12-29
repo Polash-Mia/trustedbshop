@@ -13,7 +13,7 @@ class HomeController extends Controller
    {
     $this->categories  = Category::all();
    
-    $this->products=Product::latest()->where('status', '1')->paginate(30);
+    $this->products=Product::latest()->where('status', '1')->paginate(1);
     return view('website.home.index',[
         'products'=> $this->products,
         'categories'=> $this->categories,
@@ -56,11 +56,12 @@ class HomeController extends Controller
 
     $searchText    =$request->search;
 
-    $this->products=Product::latest()->where('status', '1')->paginate(30);
+    $this->categories  = Category::all();
 
-    $this->product =Product::where('name','LIKE',"% .$searchText. %")->get();
+    $this->product =Product::where('name','LIKE',"%" .$searchText. "%")->paginate(1);
     return view('website.home.index',[
-        'product'=> $this->product,
+        'products'=> $this->product,
+        'categories'=> $this->categories,
         
     ]);
     

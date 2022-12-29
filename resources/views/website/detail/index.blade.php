@@ -48,35 +48,42 @@
                 <h3 class="font-weight-semi-bold">{{$product->name}}</h3>
                
 			   <div class="d-flex">
-			   <h3 class="text-muted "><del>৳{{$product->regular_price}}</del></h3>
+			                <h3 class="text-muted "><del>৳{{$product->regular_price}}</del></h3>
 							<h3 class="text-danger ml-2">৳{{$product->selling_price}}</h3>
-							</div>
+				</div>
                 
-                
+                 <form action="{{route('add-to-cart', ['id' => $product->id ])}}" method="POST">
+                 @csrf
                 
                 <div class=" d-flex align-items-center mb-4 pt-2">
 				পরিমান :
                     <div class="input-group quantity mr-3" style="width: 130px;">
-                        <div class="input-group-btn">
+                        {{-- <div class="input-group-btn">
                             <button class="btn  btn-minus" >
                             <i class="fa fa-minus"></i>
                             </button>
-                        </div>
-                        <input type="text" class="form-control  text-center" value="1">
-                        <div class="input-group-btn">
+                        </div> --}}
+                        {{-- <input type="text" class="form-control  text-center" value="1"> --}}
+                        <input type="number" name="quantity" class="form-control bg-secondary text-center" value="1" min="1">
+                        {{-- <div class="input-group-btn">
                             <button class="btn  btn-plus">
                                 <i class="fa fa-plus"></i>
                             </button>
-                        </div>
+                        </div> --}}
                     </div>
                     
-                </div>
-				
-				
-				<div class="mt-md-4 mt-2  d-md-flex">
-                                <input type="submit" class="btn px-5 bg-danger text-white order_now_btn order_now_btn_m mr-3" name="order_now" value="অর্ডার করুন">
-                                <input type="submit" class="btn px-5 bg-info text-white add_cart_btn ml-2" name="add_cart" value="কার্টে রাখুন">
-                            </div>
+                </div>				
+				 <div class="mt-md-4 mt-2  d-md-flex">
+                     <button type="submit" class="btn px-5 bg-danger text-white order_now_btn order_now_btn_m mr-3" name="order_now" >অর্ডার করুন</button> 
+                     <button type="submit" class="btn px-5 bg-info text-white add_cart_btn ml-2" name="add_cart" >কার্টে রাখুন</button> 
+
+                     {{-- <input type="submit" class="btn px-5 bg-danger text-white order_now_btn order_now_btn_m mr-3" name="order_now" value="অর্ডার করুন"> --}}
+                     {{-- <input type="submit" class="btn px-5 bg-info text-white add_cart_btn ml-2" name="add_cart" value="কার্টে রাখুন"> --}}
+                 </div>
+
+                 </form>
+
+
 							<div class="py-3">
 							<a class="btn btn-success w-75 " href="tel:01968573982">
                                         <i class="fa fa-phone-square"></i>
@@ -134,36 +141,7 @@
         <div class="text-center mb-4">
             <h2 class="section-title px-5"><span class="px-2">রিলেটেড প্রোডাক্ট</span></h2>
         </div>
-        {{-- <div class="row px-xl-5">
-            <div class="col">
-                <div class="owl-carousel related-carousel">
-
-                    @foreach ($related_products as $product )
-                    <div class="card product-item border-0">
-                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                            <img class="img-fluid w-100" src="{{asset($product->image)}}" alt="">
-                        </div>
-                        <div class="card-body border-left border-right text-center p-0 ">
-                            
-                            
-                                <h6 class="text-muted ml-2"><del>৳{{$product->regular_price}}</del></h6>
-                                <h6 class="text-warning">৳{{$product->selling_price}}</h6>
-                                <h6 class="text-truncate mb-3">{{$product->name}}</h6>
-                                    <form action="" method="post">      
-                                        <input type="hidden" name="qty" value="1">
-                                        <input type="submit" class="btn btn-sm w-100 mb-2 bg-danger px-2 text-white" name="order_now" value="অর্ডার করুন">
-                                    </form>
-                            
-                        </div>
-                        
-                    </div>
-                        
-                    @endforeach
-                   
-                    
-                </div>
-            </div>
-        </div> --}}
+     
 
         <div class="row px-xl-5 pb-3">
 
@@ -188,7 +166,8 @@
                             
                                 <form action="" method="post">      
                                     <input type="hidden" name="qty" value="1">
-                                    <input type="submit" class="btn btn-sm w-100 mb-2 bg-danger px-2 text-white rounded" name="order_now" value="অর্ডার করুন">
+                                    <button type="submit" class="btn btn-sm w-100 mb-2 bg-danger px-2 text-white rounded" name="order_now">অর্ডার করুন</button>
+                                    {{-- <input type="submit" class="btn btn-sm w-100 mb-2 bg-danger px-2 text-white rounded" name="order_now" value="অর্ডার করুন"> --}}
                                 </form>
                         
                     </div>

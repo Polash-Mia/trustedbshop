@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Models\Category;
+use Darryldecode\Cart\Cart;
+use View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +26,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::composer('*', function ($view) {
+            $view->with('categories', Category::all());
+            $view->with('totalCartProduct', count(\Cart::getContent()));
+            $view->with('cartProducts', \Cart::getContent());
+        });
     }
 }

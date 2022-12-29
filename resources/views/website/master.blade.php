@@ -31,7 +31,7 @@
         
         <div class="row align-items-center py-3 px-xl-5">
             <div class="col-lg-3 d-none d-lg-block">
-                <a href="{{route('home')}}" class="text-decoration-none">
+                <a href="{{route('home')}}" class="text-decoration-none ml-5">
                     
 					<img class="" src="{{asset('/')}}website/img/637b709aa4a83.png" alt="" height="70 px" width="150 px">
                 </a>
@@ -67,7 +67,7 @@
                 </a>
                 <a href="" class="btn border">
                     <i class="fas fa-shopping-cart text-white"></i>
-                    <span class="badge text-white ">0</span>
+                    <span class="badge text-white ">{{$totalCartProduct}}</span>
                 </a>
             </div>
         </div>

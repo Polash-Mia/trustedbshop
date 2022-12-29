@@ -101,7 +101,7 @@
                 <div class="dropdown d-inline-block">
                     <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="rounded-circle header-profile-user" src="{{asset('/')}}admin/assets/images/users/avatar-1.jpg"
+                        <img class="rounded-circle header-profile-user" src="{{asset('/')}}admin/assets/images/user.jpg"
                              alt="Header Avatar">
                         <span class="d-none d-xl-inline-block ml-1">{{ Auth::user()->name }}</span>
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
@@ -172,7 +172,7 @@
                             <span>Order Module</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
-                            {{-- <li><a href="{{route('admin-order.manage')}}">Manage Order</a></li> --}}
+                            <li><a href="{{route('admin-order.manage')}}">Manage Order</a></li>
                         </ul>
                     </li>
 
