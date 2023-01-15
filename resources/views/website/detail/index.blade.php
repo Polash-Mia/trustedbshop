@@ -27,7 +27,7 @@
 
                         @foreach($product->subImages as $key => $subImage)
                         <div class="imagegalary carousel-item p-3  {{$key==0 ? "active" : " "}}" >
-                             <img src="{{asset($subImage->image)}}" class="rounded" style="height: 100%; width:100%;">
+                             <img src="{{asset($subImage->image)}}" class="rounded w-100" style="height: 350px; width:350px;">
                          </div>
 
                          @endforeach
@@ -139,7 +139,7 @@
     <!-- Products Start -->
     <div class="container-fluid py-5">
         <div class="text-center mb-4">
-            <h2 class="section-title px-5"><span class="px-2">রিলেটেড প্রোডাক্ট</span></h2>
+            <h5 class=" text-left px-5 font-weight-bold">রিলেটেড প্রোডাক্ট</h5>
         </div>
 
 
@@ -166,7 +166,10 @@
 
                                 <form action="" method="post">
                                     <input type="hidden" name="qty" value="1">
-                                    <button type="submit" class="btn btn-sm w-100 mb-2 bg-danger px-2 text-white rounded" name="order_now">অর্ডার করুন</button>
+                                    <div class="pb-2 px-1">
+                                        <button type="submit" class="btn btn-sm w-100 mb-2 bg-danger px-2 text-white rounded" name="order_now" >অর্ডার করুন</button> 
+                                    </div>
+                                    {{-- <button type="submit" class="btn btn-sm w-100 mb-2 bg-danger px-2 text-white rounded" name="order_now">অর্ডার করুন</button> --}}
                                     {{-- <input type="submit" class="btn btn-sm w-100 mb-2 bg-danger px-2 text-white rounded" name="order_now" value="অর্ডার করুন"> --}}
                                 </form>
 

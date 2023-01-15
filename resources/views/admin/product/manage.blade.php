@@ -1,4 +1,7 @@
 @extends('admin.master')
+@section('title')
+manage-product
+@endsection
 @section('body')
 <div class="row">
     <div class="col-12">

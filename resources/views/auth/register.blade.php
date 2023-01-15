@@ -55,7 +55,7 @@
                                     </a>
                                 </div>
                                 <div class="p-2">
-                                    <form class="user" action="{{ route('register') }}" method="POST">
+                                    <form class="user" action="{{ route('register') }}" method="POST" enctype="multipart/form-data" >
                                         @csrf
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user" id="exampleLastName" name="name"
@@ -64,6 +64,10 @@
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="email"
                                                 placeholder="Email Address">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="file" class="form-control form-control-user" id="image" name="image"
+                                                placeholder="image">
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">

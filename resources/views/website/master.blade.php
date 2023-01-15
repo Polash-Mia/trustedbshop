@@ -3,13 +3,16 @@
 
 <head>
     <meta charset="utf-8">
-    <title>EShopper - Bootstrap Shop Template</title>
+    <title>Trusted-Shop</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    {{-- <link href="img/favicon.ico" rel="icon"> --}}
+    @foreach ($settings as $setting )
+    <link rel="shortcut icon" href="{{asset($setting->logo)}}">
+    @endforeach
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -23,6 +26,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{asset('/')}}website/css/style.css" rel="stylesheet">
+    @stack('style')
 </head>
 
 <body>
@@ -33,7 +37,11 @@
             <div class="col-lg-3 d-none d-lg-block">
                 <a href="{{route('home')}}" class="text-decoration-none ml-5">
 
-					<img class="" src="{{asset('/')}}website/img/637b709aa4a83.png" alt="" height="70 px" width="150 px">
+					{{-- <img class="" src="{{asset('/')}}website/img/637b709aa4a83.png" alt="" height="70 px" width="150 px"> --}}
+                    @foreach ($settings as $setting )
+					<img class="" src="{{asset($setting->logo)}}" alt="" height="70 px" width="150 px">
+                    @endforeach
+                    {{-- <img class="img-fluid w-100 h-100" src="{{asset($product->image)}}" alt="" style="height: 100%; width:100%;"> --}}
                 </a>
             </div>
             {{-- <div class="col-lg-6 col-6 text-left">
@@ -63,7 +71,13 @@
             <div class="col-lg-3 col-6 text-right ">
                 <a href="" class="tel:01793679254" >
                     <i class="fas fa-phone-alt text-white  "></i>
-                    <span class="badge text-white ">01793679254</span>
+                    @foreach ($settings as $setting )
+                        
+                   
+                    <span class="badge text-white "><h6 class="text-white">{{ $setting->mobile }}</h6></span>
+
+                    @endforeach
+                    {{-- <span class="badge text-white "><h6 class="text-white">01968573982</h6></span> --}}
                 </a>
                 <a href="" class="btn border">
                     <i class="fas fa-shopping-cart text-white"></i>

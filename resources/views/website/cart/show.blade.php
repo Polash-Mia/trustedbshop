@@ -110,7 +110,8 @@
                                 <tfoot>
                                     <tr>
                                         <th colspan="4" class="text-right pr-2">Sub Total</th>
-                                        <td><span id="net_total">{{ number_format($sum) }}</span></td>
+                                        <td><span id="net_total" data-value="{{$sum}}">{{ number_format($sum) }}</span></td>
+                                        {{-- <input type="hidden" id="net_total" value="{{$sum}}" name=""> --}}
                                     </tr>
                                     <tr>
                                         <th colspan="4" class="text-right pr-2">Shipping Cost</th>
@@ -171,8 +172,8 @@
                         // $('#order_info_table').empty();
                         // $('#order_info_table').append(data);
                         if (response) {
-                            console.log(response.data);
-                            // location.reload();
+                           // console.log(response.data);
+                             location.reload();
                         } else {
                             alert('something went wrong')
                         }
@@ -195,12 +196,12 @@
                         // $('#order_info_table').empty();
                         // $('#order_info_table').append(data);
                         if (response) {
-                            console.log(response.data);
-                            // location.reload();
+                           // console.log(response.data);
+                             location.reload();
                         } else {
                             alert('something went wrong')
                         }
-                        alert('sdfs')
+
                          calculate();
                     }
                 });
@@ -208,7 +209,7 @@
         })
 
         function calculate() {
-            var net_total = parseFloat($('#net_total').text());
+            var net_total = parseFloat($('#net_total').data('value'));
             var cart_shipping_cost = parseFloat($('#cart_shipping_cost').text());
             $('#grand_total').text(net_total + cart_shipping_cost);
         }

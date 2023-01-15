@@ -43,7 +43,10 @@
                         </a>
                             <form action="" method="post">      
                                 <input type="hidden" name="qty" value="1">
-                                <input type="submit" class="btn btn-sm w-100 mb-2 bg-danger px-2 text-white rounded" name="order_now" value="অর্ডার করুন">
+                                <div class="pb-2 px-1">
+                                    <button type="submit" class="btn btn-sm w-100 mb-2 bg-danger px-2 text-white rounded" name="order_now" >অর্ডার করুন</button> 
+                                </div>
+                                {{-- <input type="submit" class="btn btn-sm w-100 mb-2 bg-danger px-2 text-white rounded" name="order_now" value="অর্ডার করুন"> --}}
                             </form>
                     
                 </div>

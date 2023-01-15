@@ -6,12 +6,15 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Ecommerce Batch Three | @yield('title')</title>
+    <title>Trusted-shop | @yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{asset('/')}}admin/assets/images/favicon.ico">
+    {{-- <link rel="shortcut icon" href="{{asset('/')}}admin/assets/images/favicon.ico"> --}}
+    @foreach ($settings as $setting )
+    <link rel="shortcut icon" href="{{asset($setting->logo)}}">
+    @endforeach
     <!-- Summernote css -->
     <link href="{{asset('/')}}admin/assets/libs/summernote/summernote-bs4.min.css" rel="stylesheet" type="text/css" />
     <!-- DataTables -->
@@ -39,21 +42,35 @@
             <div class="d-flex">
                 <!-- LOGO -->
                 <div class="navbar-brand-box">
-                    <a href="index.html" class="logo logo-dark">
+                    <a href="{{ route('dashboard') }}" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="{{asset('/')}}admin/assets/images/logo.svg" alt="" height="22">
+                                    {{-- <img src="{{asset('/')}}admin/assets/images/logo.svg" alt="" height="22"> --}}
+                                    @foreach ($settings as $setting )
+                                    <img class="" src="{{asset($setting->logo)}}" alt="" height="40" width="50">
+                                    @endforeach
+
                                 </span>
                         <span class="logo-lg">
-                                    <img src="{{asset('/')}}admin/assets/images/logo-dark.png" alt="" height="17">
+                                    {{-- <img src="{{asset('/')}}admin/assets/images/logo-dark.png" alt="" height="17"> --}}
+                                    @foreach ($settings as $setting )
+                                    <img class="" src="{{asset($setting->logo)}}" alt="" height="40" width="50" >
+                                    @endforeach
+
                                 </span>
                     </a>
 
-                    <a href="index.html" class="logo logo-light">
+                    <a href="{{ route('dashboard') }}" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="{{asset('/')}}admin/assets/images/logo-light.svg" alt="" height="22">
+                                    {{-- <img src="{{asset('/')}}admin/assets/images/logo-light.svg" alt="" height="22"> --}}
+                                    @foreach ($settings as $setting )
+                                    <img class="" src="{{asset($setting->logo)}}" alt="" height="40" width="50">
+                                    @endforeach
                                 </span>
                         <span class="logo-lg">
-                                    <img src="{{asset('/')}}admin/assets/images/logo-light.png" alt="" height="19">
+                                    {{-- <img src="{{asset('/')}}admin/assets/images/logo-light.png" alt="" height="19"> --}}
+                                    @foreach ($settings as $setting )
+                                    <img class="" src="{{asset($setting->logo)}}" alt="" height="40" width="50">
+                                    @endforeach
                                 </span>
                     </a>
                 </div>
@@ -101,8 +118,14 @@
                 <div class="dropdown d-inline-block">
                     <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="rounded-circle header-profile-user" src="{{asset('/')}}admin/assets/images/user.jpg"
-                             alt="Header Avatar">
+                            @if (Auth::user()->profile_photo_path)
+                            <img class="rounded-circle header-profile-user" src="{{asset('/upload/profile/'.Auth::user()->profile_photo_path)}}"
+                            alt="Header Avatar">
+                            @else
+                            <img class="rounded-circle header-profile-user" src="{{asset('/')}}admin/assets/images/user.jpg"
+                            alt="Header Avatar">
+                            @endif
+                       
                         <span class="d-none d-xl-inline-block ml-1">{{ Auth::user()->name }}</span>
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                     </button>
@@ -136,8 +159,8 @@
                     <li class="menu-title">Menu</li>
 
                     <li>
-                        <a href="javascript: void(0);" class="waves-effect">
-                            <i class="bx bx-home-circle"></i><span class="badge badge-pill badge-info float-right">03</span>
+                        <a href="{{ route('dashboard') }}" class="waves-effect">
+                            <i class="bx bx-home-circle"></i><span class="badge badge-pill badge-info float-right"></span>
                             <span>Dashboards</span>
                         </a>
 
@@ -173,6 +196,16 @@
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
                             <li><a href="{{route('admin-order.manage')}}">Manage Order</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bx bx-briefcase-alt-2"></i>
+                            <span>Setting</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="{{route('setting.add')}}">Add Setting</a></li>
+                            <li><a href="{{route('setting.manage')}}">Manage Setting</a></li>
                         </ul>
                     </li>
 

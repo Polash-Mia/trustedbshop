@@ -5,6 +5,60 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+ .position{
+  height: 250px;
+  width: 250px;
+  background-color: aquamarine;
+  position: relative;
+  border: red 1px solid;
+  margin-right: 10px !important;
+}
+.bg-hotdeal{
+  background-color:#ffefcf ;
+}
+
+.owl-item {
+  margin-right: -90px !important;
+}
+
+.sub-position{
+  margin: 10px 10px 0 0 ;
+              
+  position:absolute;
+  padding: 0;
+  right: 0;
+  top: 0;
+  
+}
+.sub-price{
+ 
+              
+  position:absolute;
+  padding: 0;
+  right: 0;
+  bottom: 20px;
+  width: 80px;
+  height: 27px;
+  border-radius: 15px 0 0 15px;
+  background-color: #0089CF;
+  
+}
+.sub-position img{
+  width: 70px;
+  height: 70px;
+}
+
+.dis-image{
+  position: relative;
+
+}
+
+.discount{
+  position: absolute;
+  top: 10px;
+  right: 18px;
+}
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;

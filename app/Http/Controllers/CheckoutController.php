@@ -48,7 +48,7 @@ class CheckoutController extends Controller
 
            
         }
-        return redirect('/complete-order')->with('message', 'আপনার অর্ডারটি গ্রহণ করা হয়েছে ৷ অপেক্ষা করুন ৷');
+        return redirect('/complete-order')->with('message', 'আপনার অর্ডারটি সফলভাবে সম্পন্ন হয়েছে আমাদের কল সেন্টার থেকে ফোন করে আপনার অর্ডারটি কনফার্ম করা হবে');
     }
     public function completeOrder()
     {

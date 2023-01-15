@@ -5,10 +5,12 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminOrderController;
+use App\Http\Controllers\SettingController;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +31,7 @@ Route::get('/',[HomeController::class, 'index'])->name('home');
 Route::get('/product-detail/{id}/{slug?}',[HomeController::class, 'detail'])->name('product.detail');
 Route::get('/category-product/{id}', [HomeController::class, 'category'])->name('category');
 Route::get('/search', [HomeController::class, 'search'])->name('search');
+Route::get('/all-hot-deals', [HomeController::class, 'hotdeal'])->name('hotdeal');
 
 Route::post('/add-to-cart/{id}', [CartController::class, 'index'])->name('add-to-cart');
 Route::get('/show-cart', [CartController::class, 'show'])->name('show-cart');
@@ -75,4 +78,11 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::get('/admin-edit-order/{id}', [AdminOrderController::class, 'edit'])->name('admin-order.edit');
     Route::post('/admin-update-order/{id}', [AdminOrderController::class, 'update'])->name('admin-order.update');
     Route::get('/admin-delete-order/{id}', [AdminOrderController::class, 'delete'])->name('admin-order.delete');
+
+    Route::get('/add-setting', [SettingController::class, 'index'])->name('setting.add');
+    Route::post('/new-setting', [SettingController::class, 'create'])->name('setting.new');
+    Route::get('/manage-setting', [SettingController::class, 'manage'])->name('setting.manage');
+    Route::get('/edit-setting/{id}', [SettingController::class, 'edit'])->name('setting.edit');
+    Route::post('/update-setting/{id}', [SettingController::class, 'update'])->name('setting.update');
+    Route::get('/delete-setting/{id}', [SettingController::class, 'delete'])->name('setting.delete');
 });
